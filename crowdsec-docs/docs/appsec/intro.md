@@ -8,9 +8,9 @@ sidebar_position: 1
 
 <!-- xx : fix crowdsec version -->
 
-Meet the Crowdsec **Application Security Component** (AKA : **AppSec Component**), a new capability for advanced application security:
+Meet the Crowdsec **Application Security Component** (AKA : **AppSec Component**), a new capability for advanced application security that enables **Web Application Firewall (WAF)** functionality on the Security Engine:
 
-The **AppSec Component** offers:
+The **AppSec Component** enbles every expected features of the Web Application Firewall:
 
 - Low-effort **virtual patching** capabilities.
 - Support for your legacy **ModSecurity** rules.
@@ -29,21 +29,21 @@ Examining Three Key Layers of the AppSec Component's Request Inspection
 
 ### 1 Remediation component: request relaying
 
-If the AppSec capability is activated on the remediation component, the incoming requests will be channeled to the CrowdSec Security engine.
+If the AppSec capability is activated on the remediation component, the incoming requests will be channeled to the CrowdSec Security Engine.
 
 ### 2 Security Engine: inband rule processing
 
-The security engine first evaluates the inband rules, designed to identify and block specific requests.  
-Once these rules are evaluated, a response is relayed to the remediation component.
+The Security Engine first evaluates the inband rules, designed to identify and block specific requests.  
+Once these rules are evaluated, a response is relayed to the Remediation Component.
 
 This leads to two possible outcomes:
 
 1.  If no inband rule is triggered, the processing of the request will continue on the web-server side as usual
-2.  If an inband rule is triggered, the remediation component will answer with a 403 or a captcha request to the user of the incriminated request, stopping the request processing.
+2.  If an inband rule is triggered, the Remediation Component will answer with a 403 error or a captcha request to the user of the incriminated request, stopping the request processing.
 
 ### 3 Security Engine: out-of-band rules processing
 
-In the background, the security engine will then evaluate the out-of-band rules. These rules do not impact performance or response time, as they are evaluated after the AppSec component instructs the webserver to continue or stop processing the request.
+In the background, the Security Engine will then evaluate the out-of-band rules. These rules do not impact performance or response time, as they are evaluated after the AppSec Component instructs the webserver to continue or stop processing the request.
 
 ## Post processing
 
